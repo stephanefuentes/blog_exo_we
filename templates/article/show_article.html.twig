@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Article
+{% endblock %}
+
+{% block body %}
+
+
+    <div class="card border-success mb-3">
+        <div class="card-header text-center">
+
+            <h1>{{ article.title }}</h1>
+            <small>Publié le :
+                {{ article.publishedAt | date('d/m/Y H:i') }}</small>
+
+
+        </div>
+        <p style="text-align: center;"><img src="{{ article.image }}" alt=""></p>
+
+
+        <div class="card-body">
+            <h4 class="card-title" style="text-align: center;">{{ article.content }}</h4>
+
+            {% for comment in article.comments %}
+                <p class="card-text  border-secondary" style="text-align: center;">toto</p>
+
+            {% endfor %}
+
+
+        </div>
+    </div>
+    <h4>Commentaires :</h3>
+    {% for comment in article.comments %}
+        <p class="card-text" style="text-align: center;">toto</p>
+    {% endfor %}
+
+
+{% endblock %}
