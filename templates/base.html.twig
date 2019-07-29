@@ -37,6 +37,42 @@
                     <a class="nav-link" href="#">About</a>
                 </li>
             </ul>
+
+
+            <ul class="navbar-nav">
+
+                {% if not is_granted('ROLE_USER') %}
+
+                    <li class="nav-item">
+                        <a class="btn btn-primary nt-1" href="{{ path('register') }}">Inscription
+
+
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="btn btn-success nt-1" href="{{ path('security_login') }}">Connexion
+
+
+                        </a>
+                    </li>
+                {% else %}
+
+                    <li class="nav-item">
+                        connecter en tant que
+                        {{ app.utilisateur.firstName }}
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-warning nt-1" href="{{ path('security_logout') }}">Deconnexion
+
+
+                        </a>
+                    </li>
+                {% endif %}
+
+            </ul>
+
+
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" placeholder="Search" type="text">
                 <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>

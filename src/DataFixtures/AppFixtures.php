@@ -21,7 +21,7 @@ class AppFixtures extends Fixture
             $article->setTitle($faker->catchPhrase)
                 ->setSlug($faker->slug)
                 ->setCreatedAt($faker->dateTimeBetween("-6 months"))
-                ->setContent($faker->realText(250))
+                ->setContent($faker->realText(50 * mt_rand(5, 15)))
                 ->setImage("http://placehold.it/300x200");
 
             if (($faker->boolean)) {
@@ -32,7 +32,7 @@ class AppFixtures extends Fixture
             for ($c = 0; $c < mt_rand(1, 6); $c++) {
                 $comment = new Comment();
                 $comment->setAuthorName($faker->firstName())
-                    ->setContent($faker->realText(200))
+                    ->setContent($faker->realText(60 * mt_rand(4, 12)))
                     ->setCreatedAt($faker->dateTimeBetween("-6 months"))
                     ->setArticle($article);
 
