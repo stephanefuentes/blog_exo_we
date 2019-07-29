@@ -16,7 +16,7 @@ class ArticleController extends AbstractController
     {
 
         $articles = $repo->findAll();
-
+      
         return $this->render('article/list_article.html.twig', [
             'controller_name' => 'ArticleController',
             'articles' => $articles
@@ -37,4 +37,7 @@ class ArticleController extends AbstractController
             'article' => $article
         ]);
     }
+
+
+
 }

@@ -22,20 +22,23 @@ class SecurityController extends AbstractController
 
         $user = new Utilisateur();
 
+
         $form = $this->createForm(UtilisateurType::class, $user);
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // dump($form->isValid());
+            // die();
             $password = $encoder->encodePassword($user, $user->getPassword());
             $user->setPassword($password);
 
             $manager->persist($user);
             $manager->flush();
 
-            dump($user);
-            die();
-            return $this->redirectToRoute('list_article');
+            // dump($user);
+            // die();
+            return $this->redirectToRoute('security_login');
         }
 
 

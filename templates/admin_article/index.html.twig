@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Articles en tableau{% endblock %}
+{% block body %}
+    
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            {# <th scope="col">Titre</th> #}
+            <th scope="col">Titre</th>
+            <th scope="col">Contenu</th>
+            <th scope="col">Date</th>
+        </tr>
+    </thead>
+    <tbody>
+       {% for article in articles %}
+           
+        <tr class="table-primary">
+            <th scope="row">{{article.title}}</th>
+            <td>{{article.content}}</td>
+            <td>{{article.createdAt | date(("d/m/Y"))}}</td>
+
+            {# <td>Column content</td> #}
+        </tr>
+       
+       {% endfor %}
+        {# <tr class="table-info">
+            <th scope="row">Info</th>
+            <td>Column content</td>
+            <td>Column content</td>
+            <td>Column content</td>
+        </tr> #}
+      
+        
+    </tbody>
+</table>
+
+
+
+{% endblock %}

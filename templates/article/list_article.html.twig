@@ -25,22 +25,41 @@
 
                         <p>
                             <small>Publié le
-
-                                {{ article.publishedAt | date('d/m/Y H:i')}}</small>
+                                {{ article.publishedAt | date('d/m/Y H:i')}}
+                            </small>
                         </p>
                         <p class="card-text text-justify">{{ article.content }}</p>
-                        <p>{{ article.comments | length  }}
-
+                        <p>
+                            {{ article.comments | length  }}
                             commentaires postés</p>
-                    </p>
-                    <p style="text-align: center;">
+                        </p>
+                        <p style="text-align: center;">
+                            <a href="{{ path('show_article', {'slug': article.slug}) }}" class="btn btn-success">Voir l'article</a>
+                        </p>
+                        <p>
+                            {% if is_granted('ROLE_ADMIN') %}
+                                <p>
+                                    <a class="btn btn-info" href="#">Editer</a>
 
-                        <a href="{{ path('show_article', {'slug': article.slug}) }}" class="btn btn-success">Voir l'article</a>
-                    </p>
+                                </p>
+                                <p>
+                                    <a class="btn btn-danger" href="#">Supprimer</a>
+
+                                </p>
 
 
+                            {% endif %}
+
+                        </p>
+
+                    </div>
                 </div>
             </div>
-        </div>
-    {% endfor %}
-</div>{% endblock %}
+
+
+           
+
+        {% endfor %}
+
+    </div>
+{% endblock %}

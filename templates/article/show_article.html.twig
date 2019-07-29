@@ -24,6 +24,15 @@
 
         <div class="card-body">
             <h4 class="card-title text-justify">{{ article.content }}</h4>
+
+            {% if is_granted('ROLE_ADMIN') %}
+                <p class="text-center">
+                    <a class="btn btn-info" href="#">Editer</a>        
+                    <a class="btn btn-danger" href="#">Supprimer</a>
+                </p>
+            {% endif %}
+
+
         </div>
     </div>
 
@@ -48,6 +57,14 @@
             </p>
 
             <blockquote class="text-center">{{ comment.content }}</blockquote>
+
+
+            {% if is_granted('ROLE_ADMIN') %}
+                <p class="text-center">
+                    <a class="btn btn-danger" href="#">Supprimer</a>
+                </p>
+            {% endif %}
+
 
         </div>
     {% endfor %}

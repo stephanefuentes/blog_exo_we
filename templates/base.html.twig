@@ -38,6 +38,8 @@
                 </li>
             </ul>
 
+            {% dump(app) %}
+
 
             <ul class="navbar-nav">
 
@@ -60,7 +62,7 @@
 
                     <li class="nav-item">
                         connecter en tant que
-                        {{ app.utilisateur.firstName }}
+                        {{ app.user.firstName }}
                     </li>
                     <li class="nav-item">
                         <a class="btn btn-warning nt-1" href="{{ path('security_logout') }}">Deconnexion

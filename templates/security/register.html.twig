@@ -4,23 +4,19 @@
 {% endblock %}
 
 {% block body %}
-<h1>Inscription</h1>
+    <h1>Inscription</h1>
 
-{{ form_start(inscriptionForm) }}
+    {{ form_start(inscriptionForm) }}
 
-<div class="alert alert-light">
-
-
-    {{form_row(inscriptionForm.firstName)}}
-    {{form_row(inscriptionForm.lastName)}}
-</div>
-<div class="alert alert-light">
-
-    <h1 class="alert-title">info de connexion</h1>
-    {{form_row(inscriptionForm.email)}}
-    {{form_row(inscriptionForm.password)}}
-
-    <button class="btn btn-info" type="submit">je m'inscrit</button>
-
-
-</div></div{{form_end(inscriptionForm)}} {% endblock %}
+    <div class="alert alert-light">
+        {{form_row(inscriptionForm.firstName)}}
+        {{form_row(inscriptionForm.lastName)}}
+    </div>
+    <div class="alert alert-light">
+        <h1 class="alert-title">info de connexion</h1>
+        {{form_row(inscriptionForm.email)}}
+        {{form_row(inscriptionForm.password)}}
+        <button class="btn btn-info" type="submit">je m'inscrit</button>
+    </div>
+    {{form_end(inscriptionForm)}}
+{% endblock %}

@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use \Cocur\Slugify\Slugify;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ArticleRepository")
@@ -67,6 +68,40 @@ class Article
     {
         $this->comments = new ArrayCollection();
     }
+
+
+    /**
+     * @ORM\PrePersist
+     *
+     */
+    public function onCreate()
+    {
+        if (empty($this->createdAt)) {
+            $this->createdAt = new \DateTime();
+        }
+
+        if (empty($this->updatedAt)) {
+            $this->updatedAt = $this->createdAt;
+        }
+
+        // si le slug est vide , on le fait
+         if (empty($this->slug)) {
+             $slugify = new Slugify();
+           $this->slug = $slugify->slugify($this->title);
+         }
+    }
+
+
+
+    /**
+     * @ORM\PreUpdate
+     *
+     */
+    // public function onUpdate()
+    // {
+    //     $this->updatedAt = new \Datetime();
+    // }
+
 
     public function getId(): ?int
     {

@@ -24,10 +24,12 @@ security:
             logout:
                 path: security_logout 
 
+            switch_user: true
+
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
 
-            # https://symfony.com/doc/current/security/impersonating_user.html
+            # https://symfony.com/doc/current/security/impersonating_user.html, ecrire aprés l'url ?_switch_user="un mail"
             # switch_user: true
 
     # Easy way to control access for large sections of your site
