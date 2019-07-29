@@ -11,28 +11,44 @@
 
             <h1>{{ article.title }}</h1>
             <small>Publié le :
-                {{ article.publishedAt | date('d/m/Y H:i') }}</small>
+                {{ article.publishedAt | date('d/m/Y') }}
+                à
+                {{ article.publishedAt | date('H:i') }}
+
+            </small>
 
 
         </div>
-        <p style="text-align: center;"><img src="{{ article.image }}" alt=""></p>
+        <p class="text-center"><img src="{{ article.image }}" alt=""></p>
 
 
         <div class="card-body">
-            <h4 class="card-title" style="text-align: center;">{{ article.content }}</h4>
-
-            {% for comment in article.comments %}
-                <p class="card-text  border-secondary" style="text-align: center;">toto</p>
-
-            {% endfor %}
-
-
+            <h4 class="card-title text-justify">{{ article.content }}</h4>
         </div>
     </div>
-    <h4>Commentaires :</h3>
+
+
+    <h3 class="text-center mt-5">Commentaires (
+        {{ article.comments | length }}
+        )</h3>
     {% for comment in article.comments %}
-        <p class="card-text" style="text-align: center;">toto</p>
+
+        <div style="background: #383636; margin: 10px; padding: 10px;">
+
+            <h4 class="text-center">{{ comment.authorName}},</h4>
+
+            <p class="text-center">a écrit
+                <em>( le
+
+                    {{  comment.createdAt | date('d/m/Y')}}
+                    à
+                    {{ comment.createdAt | date('H:i') }}
+                    ) :
+                </em>
+            </p>
+
+            <blockquote class="text-center">{{ comment.content }}</blockquote>
+
+        </div>
     {% endfor %}
-
-
 {% endblock %}

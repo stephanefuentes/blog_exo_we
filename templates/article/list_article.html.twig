@@ -13,17 +13,21 @@
                 <div class="card border-light mb-3">
 
                     <div class="card-header">
-                        <h4 class="card-title">{{ article.title }}</h4>
+                        <h4 class="card-title text-center">{{ article.title }}</h4>
                     </div>
 
 
                     <img src="{{ article.image }}" alt=""/>
-                    <div class="card-body">
+                    <div class="card-body  text-center">
 
-                        <small>Publié le
-                            {{ article.publishedAt | date('d/m/Y H:i')}}</small>
-                        <p class="card-text">{{ article.content }}</p>
-                        <p style="text-align: center;">{{ article.comments | length  }}
+
+                        <p>
+                            <small>Publié le
+
+                                {{ article.publishedAt | date('d/m/Y H:i')}}</small>
+                        </p>
+                        <p class="card-text text-justify">{{ article.content }}</p>
+                        <p>{{ article.comments | length  }}
 
                             commentaires postés</p>
                     </p>
