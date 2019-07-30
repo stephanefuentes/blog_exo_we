@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Article edition
+{% endblock %}
+
+{% block body %}
+    <h1>Edition de l'article</h1>
+
+    {{ form_start(formArticle) }}
+
+    {# {{ form_widget(formArticle) }}
+            {<div class="alert alert-light"> #}
+    {{form_row(formArticle.title)}}
+    {{form_row(formArticle.slug)}}
+    {# </div>
+                                                                            <div class="alert alert-light"> #}
+    {# <h1 class="alert-title">info de connexion</h1> #}
+    {{form_row(formArticle.content)}}
+    {{form_row(formArticle.image)}}
+    {# {{form_row(formArticle.utilisateur, {'attr': {'value': 'toto'}}) }}   #}
+
+    {# <button class="btn btn-info" type="submit">je m'inscrit</button>
+                                            </div>  #}
+        <button class="btn btn-success" type="submit"> Enregister modification éventuelle</button>
+
+    {{form_end(formArticle)}}
+{% endblock %}

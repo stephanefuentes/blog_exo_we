@@ -32,34 +32,32 @@
                         <p>
                             {{ article.comments | length  }}
                             commentaires postés</p>
-                        </p>
-                        <p style="text-align: center;">
-                            <a href="{{ path('show_article', {'slug': article.slug}) }}" class="btn btn-success">Voir l'article</a>
-                        </p>
-                        <p>
-                            {% if is_granted('ROLE_ADMIN') %}
-                                <p>
-                                    <a class="btn btn-info" href="#">Editer</a>
-
-                                </p>
-                                <p>
-                                    <a class="btn btn-danger" href="#">Supprimer</a>
-
-                                </p>
+                    </p>
+                    <p style="text-align: center;">
+                        <a href="{{ path('show_article', {'slug': article.slug}) }}" class="btn btn-success">Voir l'article</a>
+                    </p>
+                    <p>
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <p>
+                                <a class="btn btn-info" href="{{ path('admin_article_edit', {'id': article.id}) }}">Editer</a>
 
 
-                            {% endif %}
+                            </p>
+                            <p>
+                                <a class="btn btn-danger" href="#">Supprimer</a>
 
-                        </p>
+                            </p>
 
-                    </div>
+
+                        {% endif %}
+
+                    </p>
+
                 </div>
             </div>
+        </div>
 
 
-           
+    {% endfor %}
 
-        {% endfor %}
-
-    </div>
-{% endblock %}
+</div>{% endblock %}
